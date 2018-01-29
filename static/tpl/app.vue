@@ -5,6 +5,8 @@
 </template>
 
 <script>
+// 引入公共文件
+import Libs from 'assets/lib';
 
 export default {
     data(){

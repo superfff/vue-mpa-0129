@@ -1,21 +1,15 @@
-# vue-test
+# vuee.*  (多页面跳转)
 
-> A Vue.js project
+ @[vue2.5.2|webpack3.6.0]
 
-## Build Setup
+>- 全空白全空白的脚手架,配置文件增加了中文注释(公共方法文件,后面再增加吧,)
+>- 在static的tpl文件夹中有空的多页面文件夹模板,开发时直接复制修改一下名字即可
 
-``` bash
-# install dependencies
-npm install
+## 命令
+>国际惯例
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+- **npm install (or cnpm 其他)** 装依赖包
+- **npm run dev** 起服务
+- **npm run build** 打上线包
+- 跑起来服务后,需要在url输入 /module/*.html (*为对应文件夹名字)
+- 添加了新文件夹后,需要重新 npm run dev一下

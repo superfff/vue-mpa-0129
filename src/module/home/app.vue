@@ -2,6 +2,8 @@
     <div>
         <img src="./images/logo.png">
         <img src="./images/123.jpg" alt="">
+        <p>static1</p>
+        <img src="~/static/123.jpg" alt="">
         <hello></hello>
         <p>{{info}}</p>
     </div>
@@ -11,6 +13,7 @@
 // 引入公共文件
 import Libs from 'assets/lib';
 import hello from 'components/HelloWorld';
+import ss from 'static/test.js';
 
 export default {
     components: {
@@ -30,6 +33,7 @@ export default {
         };
         console.log(Libs.F.obj_str(obj));
 
+        ss();
     },
     methods: {
 

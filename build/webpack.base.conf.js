@@ -69,6 +69,7 @@ module.exports = {
       '@': resolve('src'),
       'assets': '@/assets',
       'components': '@/components',
+      'static': resolve('static')
     }
   },
   /*

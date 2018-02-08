@@ -3,7 +3,9 @@
         <img src="./images/logo.png">
         <img src="./images/123.jpg" alt="">
         <p>static1</p>
-        <img src="~/static/123.jpg" alt="">
+        <img src="~static/123.jpg" alt="">
+        <p>background-image</p>
+        <div class="img"></div>
         <hello></hello>
         <p>{{info}}</p>
     </div>
@@ -54,5 +56,14 @@ export default {
     }
     p{
         text-align: center;
+    }
+
+    .img{
+        width: 555px;
+        height: 300px;
+        background-image: url('.images/123.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        margin: 0 auto;
     }
 </style>

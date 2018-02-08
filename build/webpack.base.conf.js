@@ -136,6 +136,8 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
+          // 限制300kb以下的图片均变为base64. 不然如果使用background-image 打包之后会找不到资源
+          // limit: 307200,
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }

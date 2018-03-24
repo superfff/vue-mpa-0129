@@ -67,14 +67,14 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'assets': '@/assets',
-      'components': '@/components',
+      'assets': resolve('src/assets'),
+      'components': resolve('src/components'),
       'static': resolve('static')
     }
   },
   /*
     https://doc.webpack-china.org/plugins/provide-plugin/#src/components/Sidebar/Sidebar.jsx
-    ProvidePlugin 可以全局加载模块,例如下面如果想全局加载一个jq
+    ProvidePlugin 可以全局加载模块,例如下面如果想全局加载一个jq, 但需要在使用前 npm install jquery --save
   */
   // plugins: [
   //   new webpack.ProvidePlugin({

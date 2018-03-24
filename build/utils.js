@@ -48,10 +48,22 @@ exports.cssLoaders = function (options) {
 
     // Extract CSS when that option is specified
     // (which is the case during production build)
+    /*
+      https://www.npmjs.com/package/extract-text-webpack-plugin
+      下面这一块的配置是指,是否需要使用extract这个插件,将css整体抽取出来.
+
+      其他俩属性看一下api,
+      有一个关键的配置属性.
+      publicPath   这个属性是指,改写css中资源引用的路径.
+
+      --
+      如果不配置这个属性,部分例如background-image对本地文件夹图片url的引用.抽取后会导致路径出错
+    */
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
-        fallback: 'vue-style-loader'
+        fallback: 'vue-style-loader',
+        publicPath: '../../../'
       })
     } else {
       return ['vue-style-loader'].concat(loaders)

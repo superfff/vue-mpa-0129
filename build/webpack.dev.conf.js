@@ -87,8 +87,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
     // 是否自动打开浏览器
-    // openPage这个属性可以配置默认打开浏览器的页面
     open: config.dev.autoOpenBrowser,
+    // openPage这个属性可以配置默认打开浏览器的页面
+    // openPage: '/module/home.html',
     // 是否全屏弹窗的形式显示编译过程中的错误
     overlay: config.dev.errorOverlay
       ? { warnings: false, errors: true }

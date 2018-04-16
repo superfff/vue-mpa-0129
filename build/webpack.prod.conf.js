@@ -130,7 +130,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 
     // split vendor js into its own file
     /*
-      提取公共模块
+      提取公共模块(将公共的import模块 提取到一个文件中.)
       https://doc.webpack-china.org/plugins/commons-chunk-plugin
       
     */
@@ -142,8 +142,11 @@ const webpackConfig = merge(baseWebpackConfig, {
           一般来讲这里的module会返回整个项目所用到的组件库包,和import的东西
           然后通过这个函数去控制一下哪一些放入vendor的文件
 
-          然后查看了一下打包出来的vendor文件.
-          主要是将(在package.json中的dependencies部分被页面所import使用的包)
+          可以通过具体的数值或者Boolean值来控制抽取的颗粒度.
+          返回true, 是会将所有的import模块都提取,
+          返回false,是将重复的提取出来,
+          具体的数值,就会作为调用模块的次数 来提取,
+
         */
         return (
           module.resource &&

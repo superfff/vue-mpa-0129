@@ -103,7 +103,7 @@ module.exports = {
           //是否将模块编译为 amd cmd commonjs等
           "modules": false,
           "targets": {
-            //指浏览器最新的2个版本 或者safari大于7的版本 >5%是指 市场率超过5%的浏览器
+            //指浏览器最新的2个版本 或者safari大于7的版本 >5%是指 市场率超过5%的浏览器 (这里是指通过下面的目标版本查看哪一些api还没有,就自动带上)
             "browsers": ["last 2 versions", "safari >= 7"]
           }
         }
@@ -120,12 +120,24 @@ module.exports = {
         因为如文档所说
         Babel 几乎可以编译所有时新的 JavaScript 语法，但对于 APIs 来说却并非如此。
         例如： Promise、Set、Map 等新增对象，Object.assign、Object.entries等静态方法。
+
         --说到runtime就会提到babel-polyfill
         (babel-polyfill 的做法是将全局对象通通污染一遍)
 
-        babel-runtime 更像是分散的 polyfill 模块，我们可以在自己的模块里单独引入，它们不会在全局环境添加未实现的方法，
-        只是，这样手动引用每个 polyfill 会非常低效。我们借助 Runtime transform 插件来自动化处理这一切。
+        babel-runtime 更像是分散的 polyfill 模块，只会在模块里单独引入需要用到的api, 不会影响全局,
+        例子: 在模块中 import Promise from 'babel-runtime/core/promise'
 
+        但是每个模块单独这样引入也是麻烦, 所以可以通过配置babel-plugin-transform-runtime来简单操作
+
+        --- 有一个小细节大家注意
+        api中说到, babel-plugin-transform-runtime默认是和babel-runtime捆绑出现, 前面是开发依赖,后面是生产依赖.
+        但是vue-cli构造出来的项目中,package.json里面并没有在生产依赖中出现babel-runtime??
+
+        后面请教了人,
+        原来在node_module中 babel-plugin-transform-runtime这个包里面的package.json里面已经把babel-runtime加入了生产.
+        所以当install的时候会自动将一连串的东西都装上!!
+
+        4.还有一个缩短build的构造时间, 在下面的babel-loader里面去 exclude掉整个 node_modules的文件夹. 可以缩短1半时间..
       */
       {
         test: /\.js$/,

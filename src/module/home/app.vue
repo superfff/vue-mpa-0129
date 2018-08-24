@@ -61,7 +61,7 @@ export default {
     .img{
         width: 555px;
         height: 300px;
-        background-image: url('.images/123.jpg');
+        background-image: url('./images/123.jpg');
         background-repeat: no-repeat;
         background-size: 100%;
         margin: 0 auto;
